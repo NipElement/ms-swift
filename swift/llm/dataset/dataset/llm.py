@@ -9,9 +9,15 @@ import numpy as np
 
 from ...template import split_str_parts_by
 from ..preprocessor import (AlpacaPreprocessor, ClsGenerationPreprocessor, ClsPreprocessor, MessagesPreprocessor,
-                            ResponsePreprocessor, RowPreprocessor, TextGenerationPreprocessor)
+                            ResponsePreprocessor, RowPreprocessor, TextGenerationPreprocessor, AutoPreprocessor)
 from ..register import DatasetMeta, SubsetDataset, register_dataset
 
+register_dataset(
+    DatasetMeta(
+        dataset_path="/data/yuansheng/ms-swift/data/training_python_visualization_code_56K.jsonl",
+        split=["train"],
+        preprocess_func=AutoPreprocessor()
+))
 
 class AlpacaZhPreprocessor(AlpacaPreprocessor):
 
